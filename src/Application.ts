@@ -6,7 +6,7 @@ module TF {
         router: Router;
         root: string;
 
-        private express: EX.Application;
+        protected express: EX.Application;
         private declaration: Declaration;
         private models: ModelInfo[] = [];
         private controllers: ControllerInfo[] = [];
@@ -59,7 +59,7 @@ module TF {
             console.log('Listening on port: ' + port);
         }
 
-        private buildExpress() {
+        protected buildExpress() {
             var express: any = require('express');
             this.express = express();
             this.express.set('views', path.join(this.root, this.config.get('view.path')));
